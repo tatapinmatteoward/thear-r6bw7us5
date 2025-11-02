@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Reviews";
+const pageDescription = "Discover what our customers are saying about our artisanal porky pies. From flavor-packed fillings to perfect flaky crusts, read glowing testimonials from pie enthusiasts.";
+const reviews = [
+  {
+    id: 1,
+    title: "Explosive Flavor in Every Bite!",
+    author: "Sarah T., London",
+    content: "I've tried pies from all over, but Porky Pie Pros takes the crown. The spicy chorizo and apple filling is a game-changer—bold, energetic, and utterly addictive. Five stars!",
+    rating: 5
+  },
+  {
+    id: 2,
+    title: "Crispy Perfection on a Plate",
+    author: "Mike R., Manchester",
+    content: "As a culinary enthusiast, I demand the best. These pies deliver with their flaky, golden crusts and hearty fillings. The texture is perfection—every bite is a delight.",
+    rating: 5
+  },
+  {
+    id: 3,
+    title: "The Ultimate Comfort Food Experience",
+    author: "Emma L., Edinburgh",
+    content: "These pies transported me back to my grandmother's kitchen. The rich, savory filling with the perfectly buttery crust is an experience that hits different. Worth every penny!",
+    rating: 4
+  },
+  {
+    id: 4,
+    title: "Bold and Irresistible",
+    author: "James K., Birmingham",
+    content: "I wasn't sure what to expect, but these porky pies exceeded all expectations. The balance of spices and the tender meat create a symphony of flavors that's impossible to forget.",
+    rating: 5
+  },
+  {
+    id: 5,
+    title: "A True Culinary Adventure",
+    author: "Sophie M., Liverpool",
+    content: "The creativity in the fillings is incredible. I tried the duck and ruby grapefruit combination—unexpected but absolutely divine. These pies are a true testament to culinary artistry.",
+    rating: 5
+  },
+  {
+    id: 6,
+    title: "Perfectly Seasoned Magic",
+    author: "David P., Glasgow",
+    content: "This is the kind of food that makes you close your eyes and savor every moment. The flavors are perfectly balanced, and the crust is so flaky it melts in your mouth. A masterpiece!",
+    rating: 5
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <div class="relative overflow-hidden">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-[#B22222] via-[#8B0000] to-[#B22222] py-20 md:py-32 relative">
+      <div class="absolute inset-0 bg-black opacity-20"></div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 animate-fade-in-down">
+            Customer Reviews
+          </h1>
+          <p class="text-xl md:text-2xl text-[#FFD700] font-bold mb-8 animate-fade-in-up">
+            Expert Insights into Artisanal Porky Pies
+          </p>
+          <div class="flex justify-center space-x-1">
+            {[...Array(5)].map((_, i) => (
+              <i key={i} class="fas fa-star text-[#FFD700] text-2xl"></i>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review Cards Section -->
+    <div class="container mx-auto px-4 py-16">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          What Our Fans Are Saying
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Discover why our artisanal porky pies are creating a buzz among culinary enthusiasts and food lovers everywhere.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {reviews.map((review) => (
+          <div 
+            key={review.id}
+            class="bg-white rounded-xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border-l-4 border-[#B22222]"
+          >
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <i 
+                      key={i} 
+                      class={`fas fa-star ${i < review.rating ? 'text-[#FFD700]' : 'text-gray-300'}`}
+                    ></i>
+                  ))}
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">{review.title}</h3>
+              <p class="text-gray-600 mb-4 italic">"{review.content}"</p>
+              <p class="text-[#B22222] font-semibold">— {review.author}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="bg-gradient-to-r from-[#FFD700] to-[#B22222] py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            The Porky Pie Pros Difference
+          </h2>
+          <p class="text-xl text-white mb-8">
+            "At Porky Pie Pros, we don't just make pies—we craft experiences that ignite taste buds and create unforgettable moments."
+          </p>
+          <div class="flex justify-center space-x-2">
+            {[...Array(5)].map((_, i) => (
+              <i key={i} class="fas fa-star text-white text-3xl"></i>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote Section -->
+    <div class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <div class="text-5xl text-[#B22222] mb-6">"</div>
+          <blockquote class="text-2xl md:text-3xl font-bold text-gray-800 mb-8">
+            "These aren't just pies—they're culinary masterpieces that capture the essence of bold, energetic flavors in every bite."
+          </blockquote>
+          <p class="text-xl text-[#B22222] font-semibold">— Food Critic & Culinary Explorer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .border-l-4 {
+    border-left-width: 4px;
+  }
+</style>

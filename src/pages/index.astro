@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Welcome to The Artisan Pie";
+const pageDescription = "Discover the rich tradition and masterful craft of porky pies at The Artisan Pie, where every bite celebrates heritage and flavor in a warm, rustic setting.";
+const features = [
+  {
+    title: "Handcrafted Excellence",
+    description: "Each pie is meticulously crafted by our master bakers using time-honored techniques passed down through generations."
+  },
+  {
+    title: "Local Ingredients",
+    description: "We source our pork and spices from local farms to ensure the freshest, highest quality ingredients in every bite."
+  },
+  {
+    title: "Traditional Recipes",
+    description: "Our recipes are rooted in centuries-old British tradition, bringing authentic flavors to your table."
+  }
+];
+const testimonials = [
+  {
+    quote: "The most incredible pork pie I've ever tasted. It transported me back to my grandmother's kitchen.",
+    author: "Sarah M."
+  },
+  {
+    quote: "Warm, welcoming, and absolutely delicious. The perfect blend of tradition and comfort.",
+    author: "James T."
+  },
+  {
+    quote: "A true artisan experience. Every slice tells a story of craftsmanship and care.",
+    author: "Emma L."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <div class="relative bg-gradient-to-br from-amber-900 to-amber-700 py-24 md:py-32">
+    <div class="absolute inset-0 opacity-10">
+      <div class="bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjEiIGZpbGw9IiNmZmYiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=')]"></div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-amber-100 mb-6">
+          Welcome to <span class="text-amber-50">The Artisan Pie</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-amber-200 mb-10 font-serif">
+          Celebrating the Craft and Culture of Porky Pie
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/menu" class="bg-amber-800 hover:bg-amber-900 text-amber-50 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
+            Explore Our Pies
+          </a>
+          <a href="/about" class="bg-transparent border-2 border-amber-50 hover:bg-amber-50 text-amber-50 font-bold py-3 px-8 rounded-full transition duration-300">
+            Our Story
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Story Section -->
+  <section class="py-20 bg-amber-50">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+          <div class="relative">
+            <div class="bg-amber-800 rounded-xl shadow-xl w-full h-96"></div>
+            <div class="absolute -bottom-6 -right-6 bg-amber-600 rounded-lg p-6 shadow-xl w-3/4">
+              <div class="flex items-center">
+                <div class="bg-amber-700 text-amber-100 rounded-full p-3 mr-4">
+                  <i class="fas fa-utensils text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-white font-bold text-lg">Traditional Oven</h3>
+                  <p class="text-amber-100">Wood-fired for authentic flavor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-serif font-bold text-amber-900 mb-6">Our Story</h2>
+          <p class="text-lg text-amber-800 mb-6">
+            Nestled in the heart of the countryside, our rustic bakery draws inspiration from old-world recipes passed down through family lines. Each pie is made with love, using locally sourced ingredients to capture the essence of authentic British fare.
+          </p>
+          <p class="text-lg text-amber-800 mb-8">
+            Whether you're reminiscing about childhood feasts or discovering porky pies for the first time, our warm, inviting space feels like home. The rich aroma of fresh herbs and slowly cooked pork fills the air, creating an atmosphere of comfort and tradition.
+          </p>
+          <div class="flex items-center">
+            <div class="bg-amber-700 text-amber-50 rounded-full p-3 mr-4">
+              <i class="fas fa-seedling text-xl"></i>
+            </div>
+            <p class="text-amber-700 font-medium">Sourced sustainably from local farms</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-amber-100">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-amber-900 mb-4">What Makes Our Pies Special?</h2>
+        <div class="w-24 h-1 bg-amber-800 mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {features.map((feature, index) => (
+          <div key={index} class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+            <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+              <i class="fas fa-hand-holding-heart text-amber-800 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-amber-900 mb-4 font-serif">{feature.title}</h3>
+            <p class="text-amber-700">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-gradient-to-br from-amber-800 to-amber-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-amber-100 mb-4">What Our Customers Say</h2>
+        <div class="w-24 h-1 bg-amber-500 mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map((testimonial, index) => (
+          <div key={index} class="bg-amber-50 rounded-xl p-8 shadow-lg">
+            <div class="flex mb-6">
+              <i class="fas fa-quote-left text-amber-400 text-3xl"></i>
+            </div>
+            <p class="text-amber-800 italic mb-6">"{testimonial.quote}"</p>
+            <div class="flex items-center">
+              <div class="bg-amber-200 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                <i class="fas fa-user text-amber-700"></i>
+              </div>
+              <p class="font-bold text-amber-900">{testimonial.author}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-amber-50">
+    <div class="container mx-auto px-4">
+      <div class="bg-gradient-to-r from-amber-700 to-amber-800 rounded-2xl p-12 text-center shadow-xl">
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-amber-50 mb-6">Ready for a Taste of Tradition?</h2>
+        <p class="text-xl text-amber-100 mb-10 max-w-2xl mx-auto">
+          Visit us today and experience the authentic craftsmanship of our handcrafted porky pies in a warm, rustic setting that celebrates heritage and flavor.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/visit" class="bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold py-3 px-8 rounded-full transition duration-300">
+            Visit Us Today
+          </a>
+          <a href="/contact" class="bg-transparent border-2 border-amber-50 hover:bg-amber-50 text-amber-50 font-bold py-3 px-8 rounded-full transition duration-300">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+  
+  .custom-animation {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .hero-pattern {
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(139, 69, 19, 0.05),
+      rgba(139, 69, 19, 0.05) 10px,
+      rgba(139, 69, 19, 0.02) 10px,
+      rgba(139, 69, 19, 0.02) 20px
+    );
+  }
+  
+  .testimonial-card {
+    transition: all 0.3s ease;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+</style>
